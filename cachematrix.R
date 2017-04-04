@@ -1,11 +1,12 @@
 ## R Programming week 3 - Programming assingment 2
-## by Valentijn Skambraks
 
-## This funciton creates a special "matrix" object that can cache the inverse.
+## This funciton creates a special "matrix" object that can cache the inverse with the folling steps:
+## 1. Sets the value of the matrix
+## 2. get the value of the matrix
+## 3. set the value of its inverse
+## 4. get the value of its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-  
-  ## create the objects and functions fo the special matrix 
   
   inv <- NULL
   set <- function(y) {
@@ -16,8 +17,6 @@ makeCacheMatrix <- function(x = matrix()) {
   setinverse <- function(inverse) inv <<- inverse
   getinverse <- function() inv
   
-  ## Create the content of the special matrix
-  
   list(set = set, 
        get = get,
        setinverse = setinverse,
@@ -25,13 +24,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-
-## This function computes the inverse of the special "matrix" returned by `makeCacheMatrix` above. 
+## This function computes the inverse of the special "matrix" returned by `makeCacheMatrix` above with the following steps
+## 1. Ceck if the inverse has been computed
+## 2. If so get the inverse from the cache
+## 3. If not compute the inverse and save it in the cache
 
 cacheSolve <- function(x, ...) {
  
-   ## Return a matrix that is the inverse of 'x'
-  
   inv <- x$getinverse()
   if(!is.null(inv)) {
     message("Getting cached data")
